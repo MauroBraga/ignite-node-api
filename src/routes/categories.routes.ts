@@ -6,12 +6,16 @@ import { CategoriesRepository } from "../repositories/CategoriesRepository";
 
 const categoriesRoutes  = Router();
 const categoriesRepository = new CategoriesRepository(); 
-const categories: Category[] = [];
 
 categoriesRoutes.post("/", (req, res) => {
     const { name, description } = req.body;
     categoriesRepository.create({name, description})
-    return res.status(201);
+    return res.status(201).send();
+})
+
+categoriesRoutes.get("/", (req, res) =>{
+    const lista = categoriesRepository.findAll();
+    return res.json(lista);
 })
 
 export {categoriesRoutes}
