@@ -1,17 +1,15 @@
-import {Response, Request} from 'express';
-import { CreateCategoryUseCase } from './CreateCategoryUseCase';
+import { Response, Request } from "express";
 
-class  CreateCategoryController{
+import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
-    constructor(private createCategoryService:CreateCategoryUseCase){
+class CreateCategoryController {
+  constructor(private createCategoryService: CreateCategoryUseCase) {}
 
-    }
-    
-    handle(request: Request, response:Response):Response{
-        const { name, description } = request.body;
-        this.createCategoryService.execute({name, description});
-        return response.status(201).send();
-    }
+  handle(request: Request, response: Response): Response {
+    const { name, description } = request.body;
+    this.createCategoryService.execute({ name, description });
+    return response.status(201).send();
+  }
 }
 
-export { CreateCategoryController }
+export { CreateCategoryController };
