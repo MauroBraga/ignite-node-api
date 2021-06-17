@@ -9,3 +9,6 @@ D => Dependency Inversion Principle(Princípio de Inversão de Depedencia)
 Modularização  => Separar a aplicação por módulos.
 
 docker build -t rentx .
+
+docker-compose up
+docker-compose up -d
