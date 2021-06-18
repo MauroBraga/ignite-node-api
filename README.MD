@@ -11,4 +11,11 @@ Modularização  => Separar a aplicação por módulos.
 docker build -t rentx .
 
 docker-compose up
-docker-compose up -d
+-- sobe o container 
+docker-compose up -d 
+
+-- para o container 
+docker-compose stop
+
+-- remove  tudo que foi criado 
+docker-compose down
