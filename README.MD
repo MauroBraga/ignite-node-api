@@ -14,6 +14,8 @@ docker-compose up
 -- sobe o container 
 docker-compose up -d 
 
+docker-compose up --force-recreate   
+
 -- para o container 
 docker-compose stop
 
