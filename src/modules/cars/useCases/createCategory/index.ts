@@ -1,13 +1,16 @@
 import { CategoriesRepository } from "../../repositories/implemetations/CategoriesRepository";
-import { CreateCategoryController } from "./CreateCategoryController"
+import { CreateCategoryController } from "./CreateCategoryController";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
-const categoriesRepository =  CategoriesRepository.getInstance();
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export default (): CreateCategoryController => {
+  const categoriesRepository = new CategoriesRepository();
 
-const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
+  const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
 
-const createCategoryController = new CreateCategoryController(
+  const createCategoryController = new CreateCategoryController(
     createCategoryUseCase
-);
+  );
 
-export {createCategoryController, createCategoryUseCase}
+  return createCategoryController;
+};
